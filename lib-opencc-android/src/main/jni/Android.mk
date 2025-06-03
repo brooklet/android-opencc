@@ -4,10 +4,15 @@ include $(CLEAR_VARS)
 LOCAL_CFLAGS    := -DOPENCC_ENABLE_DARTS
 
 LOCAL_MODULE    := OpenCC
-LOCAL_C_INCLUDES += src/main/jni/OpenCC/deps/darts-clone/
-LOCAL_C_INCLUDES += src/main/jni/OpenCC/deps/marisa-0.2.6/include/
-LOCAL_C_INCLUDES += src/main/jni/OpenCC/deps/marisa-0.2.6/lib/
-LOCAL_C_INCLUDES += src/main/jni/OpenCC/deps/rapidjson-1.1.0/
+#LOCAL_C_INCLUDES += src/main/jni/OpenCC/deps/darts-clone/
+#LOCAL_C_INCLUDES += src/main/jni/OpenCC/deps/marisa-0.2.6/include/
+#LOCAL_C_INCLUDES += src/main/jni/OpenCC/deps/marisa-0.2.6/lib/
+#LOCAL_C_INCLUDES += src/main/jni/OpenCC/deps/rapidjson-1.1.0/
+
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/OpenCC/deps/darts-clone/
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/OpenCC/deps/marisa-0.2.6/include/
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/OpenCC/deps/marisa-0.2.6/lib/
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/OpenCC/deps/rapidjson-1.1.0/
 
 LOCAL_SRC_FILES := \
 OpenCC/src/BinaryDict.cpp \
@@ -45,7 +50,8 @@ include $(CLEAR_VARS)
 LOCAL_PRELINK_MODULE := false
 
 LOCAL_MODULE 	:= ChineseConverter
-LOCAL_C_INCLUDES += src/main/jni/OpenCC/src/
+#LOCAL_C_INCLUDES += src/main/jni/OpenCC/src/
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/OpenCC/src/
 LOCAL_STATIC_LIBRARIES := OpenCC
 LOCAL_LDLIBS  += -llog -landroid
 
